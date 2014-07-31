@@ -1,0 +1,524 @@
+<!doctype html>
+
+<!--
+
+    Welcome to the light side of the source, young padawan.
+
+    One step closer to learn something interesting you are...
+
+                               ____                  
+                            _.' :  `._               
+                        .-.'`.  ;   .'`.-.           
+               __      / : ___\ ;  /___ ; \      __  
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'     
+                    "-.__ ;  .-"  "-.  : __.-"       
+                        L ' /.======.\ ' J           
+                         "-.   "__"   .-"            
+                        __.l"-:_JL_;-";.__           
+                     .-j/'.;  ;""""  / .'\"-.        
+                   .' /:`. "-.:     .-" .';  `.      
+                .-"  / ;  "-. "-..-" .-"  :    "-.   
+             .+"-.  : :      "-.__.-"      ;-._   \  
+             ; \  `.; ;                    : : "+. ; 
+             :  ;   ; ;                    : ;  : \: 
+             ;  :   ; :                    ;:   ;  : 
+            : \  ;  :  ;                  : ;  /  :: 
+            ;  ; :   ; :                  ;   :   ;: 
+            :  :  ;  :  ;                : :  ;  : ; 
+            ;\    :   ; :                ; ;     ; ; 
+            : `."-;   :  ;              :  ;    /  ; 
+             ;    -:   ; :              ;  : .-"   : 
+             :\     \  :  ;            : \.-"      : 
+              ;`.    \  ; :            ;.'_..-=  / ; 
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
+                    \ / .-"   /.     .'.' ;_:'    ;  
+                     :-""-.`./-.'     /    `.___.'   
+                           \ `t  ._  /               
+                            "-.t-._:'                
+
+-->
+
+<!--
+    
+    So you'd like to know how to use impress.js?
+    
+    You've made the first, very important step - you're reading the source code.
+    And that's how impress.js presentations are built - with HTML and CSS code.
+    
+    Believe me, you need quite decent HTML and CSS skills to be able to use impress.js effectively.
+    And what is even more important, you need to be a designer, too, because there are no default
+    styles for impress.js presentations, there is no default or automatic layout for them.
+    
+    You need to design and build it by hand.
+    
+    So...
+    
+    Would you still like to know how to use impress.js?
+    
+-->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+
+
+    <!--
+        
+        Impress.js doesn't depend on any external stylesheet. Script adds all styles it needs for
+        presentation to work.
+        
+        This style below contains styles only for demo presentation. Browse it to see how impress.js
+        classes are used to style presentation steps, or how to apply fallback styles, but I don't want
+        you to use them directly in your presentation.
+        
+        Be creative, build your own. We don't really want all impress.js presentations to look the same,
+        do we?
+        
+        When creating your own presentation get rid of this file. Start from scratch, it's fun!
+        
+    -->
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<!--
+    
+    Body element is used by impress.js to set some useful class names, that will allow you to detect
+    the support and state of the presentation in CSS or other scripts.
+    
+    First very useful class name is `impress-not-supported`. This class means, that browser doesn't
+    support features required by impress.js, so you should apply some fallback styles in your CSS.
+    It's not necessary to add it manually on this element. If the script detects that browser is not
+    good enough it will add this class, but keeping it in HTML means that users without JavaScript
+    will also get fallback styles.
+    
+    When impress.js script detects that browser supports all required features, this class name will
+    be removed.
+    
+    The class name on body element also depends on currently active presentation step. More details about
+    it can be found later, when `hint` element is being described.
+    
+-->
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+
+    <div class="step slide" data-x="0" data-y="0">
+        <q><strong>How to Contao</strong><br><br>
+        Von Joe Ray Gregory <br> auf dem Contao Austria Day 2014</q>
+    </div>
+
+    <div class="step" data-x="0" data-y="-1000">
+        <q>
+            <strong>Joe Ray Gregory</strong><br><br>
+            - 30 Jahre alt aus Lüneburg<br>
+            - Seit 7 Jahren Contao begeistert<br>
+            - Entwickler und Mitgründer der Marke slashworks<br>
+            - Organisator Contao Nordtag<br>
+
+        </q>
+    </div>
+
+    <div class="step" data-x="9000" data-y="-5000" data-rotate-y="-90">
+        <p>
+            <strong>Szenario 1:</strong><br>
+            Wir haben eine verschachtelte Navigationsstruktur und wollen das bei Klick auf die Oberseite direkt die erste Unterseite angesteuert wird. Im nachfolgenden Beispiel klick auf Über uns -> Standorte.
+
+        <ul class="smalltext">
+
+            <li>
+                Über uns
+                <ul style="padding-left: 40px;">
+
+                    <li>Standorte</li>
+                    <li>Team</li>
+
+                </ul>
+            </li>
+
+        </ul>
+
+        </p>
+    </div>
+
+    <div class="step" data-x="10000" data-y="-5000">
+
+        <p>
+            <strong>Lösung 1</strong><br>
+            Wir setzen im Backend den Typ der Seite <strong>Über uns</strong> auf <strong>Interne Weiterleitung</strong> und weisen ihr die Referenzseite Standorte zu.
+
+        </p>
+
+    </div>
+
+    <div class="step" data-x="11000" data-y="-5000">
+
+        <p>
+            <strong>Was ist falsch an diesem Ansatz?</strong><br>
+            Verschieben wir die Seite Standorte an die zweite Position so muss auch die Verknüpfung neu gesetzt werden. Das ist eine potentielle fehlerquelle.
+        </p>
+
+    </div>
+
+    <div class="step" data-x="12000" data-y="-5000">
+
+        <p>
+            <strong>Bessere Lösung</strong><br>
+            Wir gehen wie in Lösung 2 vor jedoch weisen wir keine Referenzsseite zu. Contao springt dann direkt zur ersten Unterseite. Dies sagt einem auch der Hilfe text unter dem Referenzfeld.
+        </p>
+
+        <br>
+        <p class="smalltext">
+
+            <strong>Zusätzlicher Vorteil:</strong> Dupliziert man die gesamte Seitenstruktur z.B. für eine weitere Sprache so werden die Verknüpfungen nicht mit dupliziert.
+
+        </p>
+
+    </div>
+
+    <div class="step" data-x="0" data-y="1500" data-rotate-y="90">
+        <q>
+            <strong>Szenario 2</strong><br>
+            Wir wollen einen Zeilenumbruch bei den Navigationspunkten verwenden. Contao erlaubt allerdings keine HTML Elemente in diesem Feld.
+        </q>
+        <p>
+            <br>
+            Über uns<br>
+            Team, Standorte
+
+        </p>
+    </div>
+
+    <div class="step" data-x="1200" data-y="1900">
+        <q>
+            <strong>Lösung 1:</strong><br>
+            Das Data Container Array (DCA) überschreiben.
+        </q>
+
+        <pre style="font-size: 24px; margin: 0; padding: 0;">
+
+            // Datei system/config/dcaconfig.php
+
+            $GLOBALS['TL_DCA']['tl_page']['fields']['title']['eval']['allowHTML'] = true;
+
+        </pre>
+    </div>
+
+    <div class="step" data-x="2400" data-y="1900">
+        <q>
+            <strong>Lösung 2:</strong><br>
+            Die Extension navigationSubline_bz installieren.
+            Die Extension bringt zu dem weitere Möglichkeiten zum Stylen mit.
+        </q>
+    </div>
+
+    <div class="step" data-x="3600" data-y="1900">
+        <q>
+            <strong>Lösung 3:</strong><br>
+            Den Inserttag {{br}} verwenden
+        </q>
+    </div>
+
+    <div class="step" data-x="-3600" data-y="-1900" data-rotate-y="-90">
+        <p>
+            <strong>Szenario 3:</strong><br>
+            Wir wollen eine Bilddatei über das Contao Backend auf einem Kundenhosting hochladen. Contao antwortet uns jedoch mit der Fehlermeldung <strong>Fehler 6 beim hochladen der Datei test.jpg</strong>
+
+        </p>
+    </div>
+
+    <div class="step" data-x="-2600" data-y="-1900">
+        <q>
+            <strong>Frage: </strong><br>
+            Was will uns das sagen?
+
+        </q>
+        <br>
+        <br>
+        <img src="images/fileupload.jpg">
+    </div>
+
+
+    <div class="step" data-x="-1600" data-y="-1900">
+
+        <p>Fehler 6 bezieht sich auf den Fehlercode 6 beim Upload von Dateien via PHP. Der Fehlercode ist Bestandteil des $_FILES arrays.</p>
+        <br>
+        <p class="smalltext">Auf PHP.net findet man dazu folgenden Hinweis:<br>
+        UPLOAD_ERR_NO_TMP_DIR<br>
+        Value: 6; Missing a temporary folder. Introduced in PHP 4.3.10 and PHP 5.0.3.</p>
+    </div>
+
+    <div class="step" data-x="-600" data-y="-1900">
+
+        <p>Daraus ergibt sich das wir die php Konfigurationsvariable <strong>“upload_tmp_dir”</strong> genauer betrachten müssen. Z.b. mittels einer phpinfo Datei.</p>
+        <br>
+        <p class="smalltext">Steht dort no value so kann man bereits den Fehler eingrenzen und Kontakt zum Hoster aufnehmen. Alternativ gilt es die Schreibrechte des angegebenen Ordners überprüfen zu lassen.</p>
+    </div>
+
+    <div class="step" data-x="600" data-y="-1900">
+
+        <p>Es gibt noch weitere Fehlercodes.</p>
+        <br>
+        <p><a href="http://php.net/manual/en/features.file-upload.errors.php">http://php.net/manual/en/features.file-upload.errors.php</a></p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="0" data-rotate-y="-90">
+        <p>
+            <strong>Szenario 4:</strong><br>
+            Wir haben eine Contao Installation und wollen schnell Inhalte bearbeiten. Oft leichter gesagt als getan. Gerade bei komplexen umfangreichen Seiten fällt es schwer zu Wissen was sich wo verbirgt.
+
+        </p>
+    </div>
+
+    <div class="step" data-x="3000" data-y="0">
+
+        <p>
+            <strong>Lösung 1</strong><br>
+            Modul Quickjump4ward von 4ward Media
+
+        </p>
+
+    </div>
+
+    <div class="step" data-x="4000" data-y="0">
+
+        <p>
+            <strong>Lösung 2</strong><br>
+            rocksolid-frontend-helper von Rocksolid
+
+        </p>
+
+    </div>
+
+    <div class="step" data-x="5000" data-y="0">
+
+        <p>
+            <strong>Lösung 3</strong><br>
+            frontend_editor von lingo4u
+
+        </p>
+
+    </div>
+
+    <div class="step" data-x="-2000" data-y="9000" data-rotate-y="-90">
+        <p>
+            <strong>Szenario 5:</strong><br>
+            Wir möchten pro Sprache eine andere Farbe für unsere Webseite.
+        </p>
+    </div>
+
+    <div class="step" data-x="-3000" data-y="9000">
+
+        <p>
+            <strong>Lösung 1</strong><br>
+            Anpassung der FE Page im body tag mit <strong>{{page::language}}</strong> oder <strong><?php echo $this->language ?></strong>
+
+        </p>
+
+        <pre class="smalltext">
+
+            &lt;body id="top" class="{{page::language}} {{ua::class}}
+            &lt;body id="top" class="&lt;?php echo $this-&gt;language ?&gt; {{ua::class}}
+
+        </pre>
+
+    </div>
+
+    <div class="step" data-x="-4000" data-y="9000">
+
+        <p>
+            <strong>Lösung 2</strong><br>
+            <strong>{{page::language}}</strong> über das Seitenlayout übergeben.
+
+        </p>
+
+    </div>
+
+    <div class="step" data-x="0" data-y="-1500" data-rotate-y="90">
+        <q>
+            <strong>Szenario 6</strong><br>
+            Ein Neukunde möchte, dass wir seine vorhandene Contao Webseite betreuen. Leider hat er die Zugangsdaten zum Backend nicht mehr.
+        </q>
+    </div>
+
+    <div class="step" data-x="1000" data-y="-1500">
+        <q>
+            <strong>Frage:</strong><br>
+            Wie kommen wir nun in das Backend?
+        </q>
+    </div>
+
+    <div class="step" data-x="2000" data-y="-1500">
+        <q>
+            <strong>Lösung:</strong><br>
+            Steht in den contao FAQ`s <a href="https://contao.org/de/faq/ich-habe-mein-administrator-passwort-vergessen.html">https://contao.org/de/faq/ich-habe-mein-administrator-passwort-vergessen.html</a>
+        </q>
+    </div>
+
+    <div class="step" data-x="-4000" data-y="20000" data-rotate-y="-90">
+        <p>
+            <strong>Szenario 7:</strong><br>
+            Wir möchten ein anderes Slider-Script verwenden als swipe.js. Z.B. den BxSlider <a href="http://bxslider.com/">http://bxslider.com/</a>
+        </p>
+    </div>
+
+    <div class="step" data-x="-3000" data-y="20000">
+
+        <p>
+            <strong>Lösung 1</strong><br>
+            Wir investieren die Zeit um eines der unzähligen Slidermodule für Contao herauszusuchen.
+        </p>
+
+    </div>
+
+    <div class="step" data-x="-2000" data-y="20000">
+
+        <p>
+            <strong>Lösung 2</strong><br>
+            Wir bauen uns einfach schnell eine eigene j_ Datei und binden diese Alternativ ein.
+        </p>
+
+    </div>
+
+    <div class="step" data-x="-1000" data-y="20000">
+
+        <p>
+            <strong>Schritt 1</strong><br>
+            Wir laden den bxslider runter und legen ihn unter files ab.
+        </p>
+
+    </div>
+
+    <div class="step" data-x="0" data-y="20000">
+
+        <p>
+            <strong>Schritt 2</strong><br>
+            Wir duplizieren die Datei j_slider.html in das templates Verzeichnis.
+        </p>
+
+    </div>
+
+    <div class="step" data-x="1000" data-y="20000">
+
+        <p>
+            <strong>Schritt 3</strong><br>
+            Wir bearbeiten die Datei und binden das Script sowie die css Datei ein.
+
+        </p>
+
+        <pre class="smalltext" style="font-size: 25px;">
+
+            &lt;?php
+
+                // Add the swipe style sheet
+                $GLOBALS['TL_CSS'][] = 'files/contaodemo/theme/js/bxslider/jquery.bxslider.css';
+            ?&gt;
+
+            &lt;script src="files/contaodemo/theme/js/bxslider/jquery.bxslider.min.js"&gt;&lt;/script&gt;
+
+        </pre>
+
+    </div>
+
+    <div class="step" data-x="2000" data-y="20000">
+
+        <p>
+            <strong>Schritt 4</strong><br>
+            Wir implementieren das Script.
+
+        </p>
+
+        <pre class="smalltext" style="font-size: 20px">
+
+            &lt;script&gt;
+                (function($) {
+                    $(document).ready(function() {
+                        $('.ce_sliderStart').each(function(i, cte) {
+                            var s = $('.content-slider', cte)[0],
+                            c = s.getAttribute('data-config').split(',');
+
+                            $('.slider-wrapper').bxSlider({
+
+                                'autoStart': parseInt(c[0]),
+                                'speed': parseInt(c[1]),
+                                'startSlide': parseInt(c[2]),
+                                'infiniteLoop': parseInt(c[3])
+                            });
+                        });
+                    });
+                })(jQuery);
+            &lt;/script&gt;
+
+        </pre>
+
+    </div>
+
+
+    <div class="step" data-x="3000" data-y="20000">
+
+        <p>
+            <strong>Schritt 5</strong><br>
+            Wir duplizieren die Template Datei ce_slider_stop.html5 und entfernen die Buttons.
+
+        </p>
+    </div>
+
+    <div class="step slide" data-x="1000000" data-y="20000">
+        <q><strong>Vielen Dank</strong><br><br>
+            Follow me on Twitter @JoeRayGregory</q>
+    </div>
+
+</div>
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
+        <script>
+            (function($) {
+
+                var GoogleMaps = window.GoogleMaps = (function() {
+
+                    var g = new GMap();
+
+                    return {
+
+                        getMapObj: function() {
+
+                            return g;
+
+                        }
+
+                    }
+
+                })();
+
+            })(jQuery);
+
+
+
+        </script>
+
+
